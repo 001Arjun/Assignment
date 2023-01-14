@@ -1,0 +1,56 @@
+﻿@model Assignment.Models.Expenss
+
+@{
+    ViewBag.Title = "CreateExp";
+    //var dt = DateTime.Now.ToString();
+}
+
+<style>
+    .error {
+        color: red;
+    }
+</style>
+
+<h2 align="center" style="color:rgb(0 38 255)">Create-Expense</h2>
+@using (Html.BeginForm("AddExpense", "ExCategory", FormMethod.Post))
+{
+    <div class="container" align="center" style="background-color:antiquewhite">
+
+        <div class="form-group">
+            <label>Title</label>
+            @Html.ValidationMessageFor(h => h.Title, "", new { @class = "error" })
+            @Html.TextBoxFor(h => h.Title, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Description</label>
+            @Html.ValidationMessageFor(h => h.Description, "", new { @class = "error" })
+            @Html.TextAreaFor(h => h.Description, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Amount</label>
+            @Html.ValidationMessageFor(h => h.Amount, "", new { @class = "error" })
+            @Html.TextBoxFor(h => h.Amount, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Category Name</label>
+            @Html.ValidationMessageFor(h => h.Id, "", new { @class = "error" })
+            @Html.DropDownList("Id", null, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group" style="display:none;">
+            <label>Date Time</label>
+            @*@Html.TextBoxFor(h=>h.Date,new { @class="form-control" })*@
+            @*@Html.TextBoxFor(h=>h.Date,new { @class="form-control" })*@
+            @Html.TextBox("Date", DateTime.Now, new { @disabled = "disabled", @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+
+    </div>
+}
+

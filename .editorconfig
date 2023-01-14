@@ -1,0 +1,7 @@
+﻿[*.cs]
+
+# CS0162: Unreachable code detected
+dotnet_diagnostic.CS0162.severity = silent
+
+# CS0105: Using directive appeared previously in this namespace
+dotnet_diagnostic.CS0105.severity = silent

@@ -1,0 +1,34 @@
+﻿@model Assignment.Models.ExCategory
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<style>
+    .error {
+        color: red;
+    }
+</style>
+<h2 align="center" style="color:rgb(255 0 0)">Create Category</h2>
+
+@using (Html.BeginForm("AddCategory", "ExCategory", FormMethod.Post))
+{
+    <div class="container" style="background-color: mediumaquamarine "  align="center">
+        <div class="form-group">
+            <label>Name</label>
+            @Html.ValidationMessageFor(h => h.Name, "", new { @class = "error" })
+            @Html.TextBoxFor(h => h.Name, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Expanse_Limit</label>
+            @Html.ValidationMessageFor(h => h.Ex_Limit, "", new { @class = "error" })
+            @Html.TextBoxFor(h => h.Ex_Limit, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+}
+

@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Assignment.Models.ViewModel>
+
+
+@{
+    ViewBag.Title = "CatNameSearch";
+}
+
+<h2>Expense List</h2>
+
+@if (TempData["AlertMsg"] != null)
+{
+    <div class="alert alert-success">
+        <strong>Success !</strong>@TempData["AlertMsg"]
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+    </div>
+}
+
+<table class="table table-hover">
+    <tr style="background-color: orangered; color: white">
+        <th>Title</th>
+        <th>Description</th>
+        <th>Amount</th>
+        <th>Category Name</th>
+        <th>Date</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.expense.Title</td>
+            <td>@item.expense.Description</td>
+            <td>@item.expense.Amount</td>
+            <td>@item.exCategory.Name</td>
+            <td>@item.expense.Date</td>
+            <td>
+                <a href="@Url.Action("EditExpense", new { item.expense.Exp_Id, item.expense.Title, item.expense.Description, item.expense.Amount, item.exCategory.Name, item.expense.Date })" class="btn btn-success">Edit</a>
+                <a href="@Url.Action("DeleteEx", new { @item.expense.Exp_Id })" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
+<strong>Total Amount Is :@Model.Sum(h => h.expense.Amount)</strong>
+@*<strong>Total Amount For Usess:  <td>@item.Ex_Limit</td></strong>
+*@
+<br />
+@foreach (var item in Model)
+{
+    <tr>
+        <th>Expess Limit</th>
+
+        <td>@item.exCategory.Ex_Limit</td>
+
+    </tr>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

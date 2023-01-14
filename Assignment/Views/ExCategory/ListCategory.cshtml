@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Assignment.Models.ExCategory>
+
+@{
+    ViewBag.Title = "ListCategory";
+    Layout = "~/Views/Shared/index.cshtml";
+}
+<script type="text/javascript">
+
+            function fun() {
+               alert ("Are Your Sure to delete this records.");
+            }
+</script>
+
+
+
+@if (TempData["AlertMsg"] != null)
+{
+    <div class="alert alert-success">
+        <strong>Success !</strong>@TempData["AlertMsg"]
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+    </div>
+}
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+
+</p>
+
+<h2 align="center">List Category </h2>
+
+<table class="table" border="1">
+    <tr style="background-color: orangered; color: white">
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_Limit)
+        </th>
+        <th> Options</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.ActionLink(item.Name, "CatNameSearch", "ExCategory", new { Id = item.Id }, null)</td>
+            <td>@item.Ex_Limit</td>
+            <td>
+                <a href="@Url.Action("EditCategory",new { item.Id,item.Name,item.Ex_Limit })" class="btn btn-success">Edit</a>
+                <a href="@Url.Action("Delete",new { item.Id })"  value = "Click me" onclick = "fun();" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    }
+
+
+
+</table>
