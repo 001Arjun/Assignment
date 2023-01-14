@@ -13,9 +13,18 @@ Visual studio • .NET Framework • .NET Core • Microsoft SQL Server Manageme
 -Microsoft.EntityFrameworkCore<br>
 -Microsoft.EntityFrameworkCore.SqlServer<br>
 -Microsoft.EntityFrameworkCore.Tools<br>
--Microsoft.VisualStudio.Web.CodeGeneration.Design<br>
+-Microsoft.VisualStudio.Web.CodeGeneration.Design<br><br>
 
-==>PROJECT SCREEN SHORT<br>
+==>WHEN YOU DOWNLOAD THIS PROJECT THIS TYPE OF ERROR OCCUR
+![image](https://user-images.githubusercontent.com/103988588/212450655-fdcb7f66-47c5-4441-96c0-be5ea9a81391.png)
+<B>SOLUATION</B><BR>
+Step1-Open Visual Studio2022<BR>
+Step2-Goto tool-Package Manager-Package Manager console<BR>
+Step3-Add Command--Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r <br><br>
+
+
+
+==>PROJECT SCREEN SHORT
 -<p align="center">Home Page</p><br>
 ![image](https://user-images.githubusercontent.com/103988588/212449674-c7b61824-c1e4-4f8a-8eb5-86b784594006.png)
 
